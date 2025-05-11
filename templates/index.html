@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <form id="convertForm">
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="base_currency">Base Currency:</label>
+                <select id="base_currency" name="base_currency">
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="target_currencies">Target Currencies:</label>
+                <select id="target_currencies" name="target_currencies" multiple>
+                    <option value="USD">USD</option>
+                    <option value="INR">INR</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="JPY">JPY</option>
+                </select>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('convertForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch('/convert', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('result');
+
+            if (result.error) {
+                resultDiv.innerHTML = `<p class="error">${result.error}</p>`;
+                return;
+            }
+
+            resultDiv.innerHTML = "<h3>Converted Amounts:</h3>";
+            for (const [currency, amount] of Object.entries(result)) {
+                resultDiv.innerHTML += `<p><strong>${currency}:</strong> ${amount}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

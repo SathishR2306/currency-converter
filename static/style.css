@@ -1,0 +1,120 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-image: linear-gradient(45deg, #4CAF50, #8BC34A);
+    background-size: cover;
+}
+
+/* Main container styling */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Inputs, Selects and Buttons */
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input and select focus effect */
+input:focus, select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 2px 6px rgba(0, 196, 0, 0.2);
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button:hover {
+    background-color: #388e3c;
+}
+
+/* Result Styling */
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Result Text Styling */
+#result h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#result p {
+    margin: 5px 0;
+}
+
+/* Error Styling */
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
